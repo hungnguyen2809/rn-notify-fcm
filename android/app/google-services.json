@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701546190468",
+    "project_id": "fcm-rnpushnoti",
+    "storage_bucket": "fcm-rnpushnoti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701546190468:android:8cd95342c2d4ff839f94d1",
+        "android_client_info": {
+          "package_name": "com.rnpushnotifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701546190468-vbto84jjag348cuvqk0drl389g9l2u9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3WCNWbqgoviPm0zAocW5P_Wd7VP7K2Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701546190468-vbto84jjag348cuvqk0drl389g9l2u9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
