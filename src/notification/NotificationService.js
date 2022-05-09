@@ -11,12 +11,6 @@ class NotificationService {
 
   configure(onOpenNotification, onAction) {
     PushNotification.configure({
-      // onRegister: (token) => {
-      //   logger.log('[onRegister] Token', token);
-      // },
-      onRegistrationError: (error) => {
-        logger.log('[onRegistrationError]: ', error);
-      },
       onAction: (notification) => {
         if (typeof onAction === 'function') {
           onAction(notification);
@@ -27,18 +21,20 @@ class NotificationService {
           return;
         }
 
-        notification.userInteraction = true;
-        if (typeof onOpenNotification === 'function') {
+        if (
+          notification.foreground &&
+          notification.userInteraction &&
+          typeof onOpenNotification === 'function'
+        ) {
           onOpenNotification(notification);
         }
       },
-      permissions: {
-        alert: true,
-        badge: true,
-        sound: true,
+      onRegistrationError: (error) => {
+        logger.log('[onRegistrationError]: ', error);
       },
-      popInitialNotification: true,
       requestPermissions: true,
+      popInitialNotification: true,
+      permissions: {alert: true, badge: true, sound: true},
     });
   }
 

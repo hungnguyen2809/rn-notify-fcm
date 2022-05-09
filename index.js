@@ -5,7 +5,7 @@ import App from './App';
 import {name as appName} from './app.json';
 import {logger} from './src/services';
 
-messaging().setBackgroundMessageHandler((remoteMessage) => {
+messaging().setBackgroundMessageHandler(async (remoteMessage) => {
   logger.log('Message handled in the background!', remoteMessage);
 });
 

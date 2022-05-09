@@ -97,7 +97,7 @@ class FCMService {
       });
 
     //When app revive notification form firebase messaging
-    this.messageListener = messaging().onMessage((remoteMessage) => {
+    this.messageListener = messaging().onMessage(async (remoteMessage) => {
       // logger.log('[FCMService] onMessage: ', remoteMessage);
       if (remoteMessage) {
         let notification = null;
