@@ -36,8 +36,6 @@
 {
   RCTAppSetupPrepareApp(application);
 
-  NSDictionary *appProperties = [RNFBMessagingModule addCustomPropsToUserProps:nil withLaunchOptions:launchOptions];
-  
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
 #if RCT_NEW_ARCH_ENABLED
@@ -47,7 +45,12 @@
   _bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:bridge contextContainer:_contextContainer];
   bridge.surfacePresenter = _bridgeAdapter.surfacePresenter;
 #endif
-
+  
+  // Define Firebase
+  [FIRApp configure];
+  
+  NSDictionary *appProperties = [RNFBMessagingModule addCustomPropsToUserProps:nil withLaunchOptions:launchOptions];
+  
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"RNPushNotifications", appProperties);
 
   if (@available(iOS 13.0, *)) {
