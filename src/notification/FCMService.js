@@ -41,7 +41,10 @@ class FCMService {
     messaging()
       .hasPermission()
       .then((status) => {
-        if (status) {
+        if (
+          status === messaging.AuthorizationStatus.AUTHORIZED ||
+          status === messaging.AuthorizationStatus.PROVISIONAL
+        ) {
           this.getToken(onRegister);
         } else {
           this.requestPermission(onRegister);
@@ -56,7 +59,10 @@ class FCMService {
     messaging()
       .requestPermission()
       .then((status) => {
-        if (status) {
+        if (
+          status === messaging.AuthorizationStatus.AUTHORIZED ||
+          status === messaging.AuthorizationStatus.PROVISIONAL
+        ) {
           this.getToken(onRegister);
         }
       })
