@@ -53,7 +53,7 @@ class NotificationService {
         vibrate: true,
       },
       (created) => {
-        // logger.log('createDefaultChannels: ', created);
+        logger.log('createDefaultChannels: ', created);
       },
     );
   }

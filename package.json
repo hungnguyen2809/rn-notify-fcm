@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "postinstall": "husky install",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern '!.prettierrc.js' . --fix",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx}\""
   },
   "dependencies": {
     "@react-native-community/push-notification-ios": "^1.10.1",
@@ -27,11 +29,20 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
     "eslint": "^7.32.0",
+    "husky": "^8.0.1",
     "jest": "^26.6.3",
+    "lint-staged": "^12.4.1",
     "metro-react-native-babel-preset": "^0.67.0",
+    "prettier": "^2.6.2",
     "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "npm run lint",
+      "npm run format"
+    ]
   }
 }
